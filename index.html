@@ -13,7 +13,7 @@
 
   
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="icon" type="image/x-icon" href="/images/istockphoto-1331186720-612x612.jpg">
 </head>
 <body>
     
@@ -31,6 +31,7 @@
         <a href="#features">features</a>
         <a href="#pricing">pricing</a>
         <a href="#trainers">trainers</a>
+       
        
     </nav>
 
@@ -222,7 +223,46 @@
 
 </section>
 
+<div class="container">  
+   <label>
+            <input id="h-input" type="number" placeholder="Enter Your Height in Centimeters: ">
+        </label>        
+        <label>
+            <input id="w-input" type="number" placeholder="Enter Your Weight in Kilogrames: ">
+        </label>            
+        <button type="submit" onclick="Calculate()">Calculate BMI</button>
+        <script>function Calculate(){
+    var height = document.getElementById("h-input").value;
+    var weight = document.getElementById("w-input").value;
 
+    var result = parseFloat(weight) /(parseFloat(height)/100)**2;
+
+    if(!isNaN(result)){
+        document.getElementById("bmi-output").innerHTML = result;
+        if(result < 18.5){
+            document.getElementById("bmi-status").innerHTML = "Underweight";
+        }
+        else if(result < 25){
+            document.getElementById("bmi-status").innerHTML = "Healthy weight  Range";
+        }
+        else if(result < 30){
+            document.getElementById("bmi-status").innerHTML = "Overweight Range";
+        }
+        else{
+            document.getElementById("bmi-status").innerHTML = "Obesity weightRange";
+        }
+    }
+}</script>
+            
+        <div class="bmi-value">
+            <h4> BMI Value is : </h4>
+            <div id="bmi-output"></div>
+        </div>
+        <div class="status">
+            <h4>You Are in: </h4>
+           <span><div id="bmi-status"></div></span>
+        </div>   
+    </div>
 
 
 
